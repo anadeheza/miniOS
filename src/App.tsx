@@ -2,16 +2,27 @@ import { useAuth } from './features/auth/AuthContext'
 import { useState } from 'react'
 import { LoginSignupModal } from './features/auth/LoginSignupModal'
 import { LockScreen } from './features/LockScreen'
-import { Desktop } from './features/DesktopScreen'
+import { Desktop } from './features/desktop/Desktop'
 import { GuestNameModal } from './features/auth/GuestModal'
+import { TopBar } from './features/desktop/TopBar'
 
 type Screen = 'lock' | 'auth' | 'guestName' | 'desktop'
 
 function App() {
-  const { user, isLoading } = useAuth()
+  const { user, isLoading, logout } = useAuth()
   const [screen, setScreen] = useState<Screen>('lock')
   const [isGuest, setIsGuest] = useState(false)
   const [guestName, setGuestName] = useState<string | null>(null)
+
+  async function handleLogout() {
+    if (isGuest) {
+        setIsGuest(false)
+        setGuestName(null)
+    } else {
+        await logout()
+    }
+    setScreen('lock')
+  }
 
   if (isLoading) {
     return (
@@ -50,7 +61,14 @@ function App() {
     )
   }
 
-  return <Desktop user={user} isGuest={isGuest} guestName={guestName} />
+  return (
+      <Desktop
+          user={user}
+          isGuest={isGuest}
+          guestName={guestName}
+          onLogout={handleLogout}
+      />
+  )
 }
 
 export default App
