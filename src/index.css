@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+:root {
+  --font-sans: "Inter", -apple-system, system-ui, sans-serif;
+}
