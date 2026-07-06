@@ -13,6 +13,7 @@ export function LockScreen({ onUnlock }: LockScreenProps) {
     useEffect(() => {
         function handleKeyDown(e: KeyboardEvent) {
             if (e.key === 'Enter') triggerUnlock()
+            if (e.key === ' ') triggerUnlock()
         }
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
@@ -39,7 +40,7 @@ export function LockScreen({ onUnlock }: LockScreenProps) {
                     month: 'long',
                     })}
                 </p>
-                <div className="text-7xl font-semibold tracking-tight text-white/40 backdrop-blur-10px [-webkit-text-stroke:0.5px_#ffffffd6]">
+                <div className="text-7xl font-semibold tracking-tight text-white/40 [-webkit-text-stroke:0.5px_#ffffffd6]">
                     {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                 </div>
             </div>

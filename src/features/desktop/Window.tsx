@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import type { OSWindow } from "./types";
 import { Calc } from "./apps/Calc";
+import { Notes } from "./apps/Notes";
 
 interface WindowProps {
     window: OSWindow
@@ -31,7 +32,7 @@ export function Window({ window: win, onClose, onFocus, onMove }: WindowProps) {
     function renderAppContent(appId: string) {
         switch (appId) {
             case 'notes':
-                return <p>Notes</p>
+                return <Notes/>
             case 'calculator':
                 return <Calc/>
             case 'browser':
@@ -45,7 +46,7 @@ export function Window({ window: win, onClose, onFocus, onMove }: WindowProps) {
 
     return (
         <div
-            className="absolute rounded-xl bg-black/90 shadow-2xl overflow-hidden"
+            className="absolute rounded-xl bg-black/90 shadow-2xl overflow-auto scrollbar-thin scrollbar-thumb-taupe-500 scrollbar-track-transparent backdrop-blur-[10px]"
             style={{
                 left: win.x,
                 top: win.y,
@@ -62,7 +63,7 @@ export function Window({ window: win, onClose, onFocus, onMove }: WindowProps) {
                 <span className="text-sm font-medium text-taupe-300">{win.title}</span>
                 <button
                     onClick={onClose}
-                    className="h-4 w-4 rounded-full bg-red-400 hover:bg-red-500"
+                    className="h-4 w-4 rounded-full bg-red-400 hover:bg-red-500 cursor-pointer"
                 />
             </div>
             <div>

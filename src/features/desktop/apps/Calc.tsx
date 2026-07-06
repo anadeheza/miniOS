@@ -83,9 +83,9 @@ export const Calc: React.FC = () => {
 
     const getButtonClass = (type: 'num' | 'op' | 'action') => {
         const base = "p-5 text-xl font-bold rounded-2xl";
-        if (type === 'num') return `${base} bg-gray-800 text-white hover:bg-gray-700`;
-        if (type === 'op') return `${base} bg-amber-500 text-white hover:bg-amber-600`;
-        return `${base} bg-gray-300 text-gray-800 hover:bg-gray-400`;
+        if (type === 'num') return `${base} bg-gray-800/80 text-white hover:bg-gray-700`;
+        if (type === 'op') return `${base} bg-amber-500/80 text-white hover:bg-amber-600`;
+        return `${base} bg-gray-300/80 text-gray-800 hover:bg-gray-400`;
     }
 
     return (

@@ -14,7 +14,7 @@ export interface AppDefinition {
 }
 
 export const APPS: AppDefinition[] = [
-    { id: 'notes', title: 'Notes', icon: notesIcon, defaultWidth: 480, defaultHeight: 320 },
+    { id: 'notes', title: 'Notes', icon: notesIcon, defaultWidth: 700, defaultHeight: 500 },
     { id: 'calculator', title: 'Calculator', icon: calcIcon, defaultWidth: 400, defaultHeight: 600 },
     { id: 'browser', title: 'Browser', icon: browserIcon, defaultWidth: 640, defaultHeight: 420 },
     { id: 'clock', title: 'Clock', icon: clockIcon, defaultWidth: 300, defaultHeight: 400 },
