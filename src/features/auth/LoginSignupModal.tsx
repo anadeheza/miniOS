@@ -39,8 +39,8 @@ export function LoginSignupModal({ onClose, onSkip }: AuthProps) {
 
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-taupe-600 bg-[url(src/assets/homebg.jpg)] bg-blend-multiply bg-cover bg-center">
-            <div className="w-90 rounded-[30px] bg-amber-100/20 backdrop-blur-10 p-6 text-black border border-amber-100/50">
-                <h2 className="mb-4 text-lg font-semibold text-amber-50">
+            <div className="w-90 rounded-[30px] bg-amber-100/20 p-6 text-black border border-amber-100/30">
+                <h2 className="mb-4 text-lg font-semibold text-amber-100/70">
                     {mode === 'login' ? 'Log in' : 'Sign up'}
                 </h2>
 
@@ -52,7 +52,7 @@ export function LoginSignupModal({ onClose, onSkip }: AuthProps) {
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             required
-                            className="rounded-[15px] bg-black/10 px-3 py-2 outline-none border border-amber-100/50 focus:text-white"
+                            className="rounded-[15px] bg-black/10 px-3 py-2 outline-none border border-amber-100/30 focus:text-white"
                         />
                     )}
 
@@ -62,7 +62,7 @@ export function LoginSignupModal({ onClose, onSkip }: AuthProps) {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
-                        className="rounded-[15px] bg-black/10 px-3 py-2 outline-none  border border-amber-100/50 focus:text-white"
+                        className="rounded-[15px] bg-black/10 px-3 py-2 outline-none  border border-amber-100/30 focus:text-white"
                     />
 
                     <input
@@ -72,7 +72,7 @@ export function LoginSignupModal({ onClose, onSkip }: AuthProps) {
                         onChange={(e) => setPassword(e.target.value)}
                         required
                         minLength={8}
-                        className="rounded-[15px] bg-black/10 px-3 py-2 outline-none  border border-amber-100/50 focus:text-white"
+                        className="rounded-[15px] bg-black/10 px-3 py-2 outline-none  border border-amber-100/30 focus:text-white"
                     />
 
                     {error && <p className="text-sm text-red-400">{error}</p>}

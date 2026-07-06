@@ -221,7 +221,7 @@ export const Notes: React.FC = () => {
                                 placeholder="Title"
                                 value={title}
                                 onChange={(e) => handleUpdate('title', e.target.value)}
-                                className="w-full text-2xl font-bold tracking-tight outline-none placeholder:opacity-70"
+                                className="w-full text-2xl font-bold outline-none placeholder:opacity-70"
                             />
                             <textarea
                                 placeholder="..."

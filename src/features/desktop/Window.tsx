@@ -2,6 +2,7 @@ import { useRef } from "react";
 import type { OSWindow } from "./types";
 import { Calc } from "./apps/Calc";
 import { Notes } from "./apps/Notes";
+import { Clock } from "./apps/Clock";
 
 interface WindowProps {
     window: OSWindow
@@ -39,6 +40,8 @@ export function Window({ window: win, onClose, onFocus, onMove }: WindowProps) {
                 return <p>Browser </p>
             case 'settings':
                 return <p>Settings</p>
+            case 'clock':
+                return <Clock/>
             default:
                 return <p>Unknown app.</p>
         }
