@@ -6,15 +6,15 @@ interface DockProps {
 
 export function Dock({ onOpenApp }: DockProps) {
     return (
-        <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-3 rounded-2xl bg-white/10 px-4 py-2 backdrop-blur-md border border-white/20">
-            {APPS.map((app) => (
+        <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-3 rounded-2xl bg-black/10 px-4 py-2 backdrop-blur-[5px] border border-white/20">
+            {APPS.filter((app) => app.showInDock !== false).map((app) => (
                 <button
                     key={app.id}
                     onClick={() => onOpenApp(app.id)}
                     title={app.title}
-                    className="flex h-14 w-14 items-center justify-center rounded-xl bg-amber-100/80 text-2xl hover:scale-110 transition-transform"
+                    className="flex h-13 w-13 items-center justify-center rounded-xl bg-transparent hover:bg-amber-100/15 overflow-hidden"
                 >
-                    {app.icon}
+                    <img src={app.icon} alt={app.title} className="h-10 w-11 object-contain" />
                 </button>
             ))}
         </div>

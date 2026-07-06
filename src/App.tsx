@@ -33,7 +33,7 @@ function App() {
   }
 
   if (user && screen === 'lock') {
-    return <Desktop user={user} isGuest={isGuest} guestName={guestName} />
+    return <Desktop user={user} isGuest={isGuest} guestName={guestName} onLogout={handleLogout}/>
   }
 
   if (screen === 'lock') {

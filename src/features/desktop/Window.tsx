@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import type { OSWindow } from "./types";
+import { Calc } from "./apps/Calc";
 
 interface WindowProps {
     window: OSWindow
@@ -27,12 +28,12 @@ export function Window({ window: win, onClose, onFocus, onMove }: WindowProps) {
         document.addEventListener('pointerup', handlePointerUp)
     }
 
-    function renderPlaceholderContent(appId: string) {
+    function renderAppContent(appId: string) {
         switch (appId) {
             case 'notes':
                 return <p>Notes</p>
             case 'calculator':
-                return <p>Calculator</p>
+                return <Calc/>
             case 'browser':
                 return <p>Browser </p>
             case 'settings':
@@ -44,7 +45,7 @@ export function Window({ window: win, onClose, onFocus, onMove }: WindowProps) {
 
     return (
         <div
-            className="absolute rounded-xl bg-white/90 shadow-2xl overflow-hidden"
+            className="absolute rounded-xl bg-black/90 shadow-2xl overflow-hidden"
             style={{
                 left: win.x,
                 top: win.y,
@@ -56,16 +57,16 @@ export function Window({ window: win, onClose, onFocus, onMove }: WindowProps) {
         >
             <div
                 onPointerDown={handlePointerDown}
-                className="flex h-9 cursor-move items-center justify-between bg-gray-200 px-3"
+                className="flex h-9 cursor-move items-center justify-between bg-taupe-800 px-3"
             >
-                <span className="text-sm font-medium text-gray-700">{win.title}</span>
+                <span className="text-sm font-medium text-taupe-300">{win.title}</span>
                 <button
                     onClick={onClose}
                     className="h-4 w-4 rounded-full bg-red-400 hover:bg-red-500"
                 />
             </div>
-            <div className="p-4 text-gray-800">
-                {renderPlaceholderContent(win.appId)}
+            <div>
+                {renderAppContent(win.appId)}
             </div>
         </div>
     )

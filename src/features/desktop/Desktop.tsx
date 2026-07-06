@@ -24,10 +24,10 @@ export function Desktop({ user, isGuest, guestName, onLogout }: DesktopProps) {
             id: crypto.randomUUID(),
             appId,
             title: appDef.title,
-            x: 120,
-            y: 100,
-            width: 480,
-            height: 320,
+            x: 200,
+            y: 50,
+            width: appDef.defaultWidth,
+            height: appDef.defaultHeight,
             zIndex: nextZIndex,
         }
         setWindows((prev) => [...prev, newWindow])
@@ -44,6 +44,7 @@ export function Desktop({ user, isGuest, guestName, onLogout }: DesktopProps) {
         setWindows((prev) =>
             prev.map((w) => (w.id === id? {...w, zIndex: nextZIndex} : w))
         )
+        setNextZIndex((z) => z + 1)
     }
 
     function moveWindow(id: string, x: number, y: number) {
