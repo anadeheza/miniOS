@@ -28,7 +28,7 @@ export function LockScreen({ onUnlock }: LockScreenProps) {
     return (
         <div
             onClick={triggerUnlock}
-            className={`flex h-screen w-screen cursor-pointer flex-col items-center justify-center bg-taupe-600 bg-[url(src/assets/bg.jpg)] bg-blend-multiply bg-cover bg-center text-white transition-transform duration-400 ease-in ${
+            className={`flex h-screen w-screen rounded-b-[30px] border-b border-b-white/10 border-b[1px] cursor-pointer flex-col items-center justify-center bg-black/30 text-white transition-transform duration-400 ease ${
                 isUnlocking ? '-translate-y-full' : 'translate-y-0'
             }`}
         >

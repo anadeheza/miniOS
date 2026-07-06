@@ -12,11 +12,11 @@ interface Note {
 const CATS = ['No category', 'Work', 'School', 'Ideas', 'Important' ]
 
 const COLORS = [
-  'bg-amber-100 dark:bg-amber-200/30 border-amber-300 ',
-  'bg-blue-100 dark:bg-blue-200/30 border-blue-300',
-  'bg-emerald-100 dark:bg-emerald-200/30 border-emerald-300',
-  'bg-rose-100 dark:bg-rose-200/30 border-rose-300',
-  'bg-purple-100 dark:bg-purple-200/30 border-purple-300',
+  'bg-amber-100 dark:bg-amber-200/40 border-amber-300 ',
+  'bg-blue-100 dark:bg-blue-200/40 border-blue-300',
+  'bg-emerald-100 dark:bg-emerald-200/40 border-emerald-300',
+  'bg-rose-100 dark:bg-rose-200/40 border-rose-300',
+  'bg-purple-100 dark:bg-purple-200/40 border-purple-300',
 ];
 
 export const Notes: React.FC = () => {
@@ -232,7 +232,7 @@ export const Notes: React.FC = () => {
                         </div>
                     </div>
                 ) : (
-                    <div className="flex flex-1 items-center justify-center text-taupe-500 font-semibold">No active note :/</div>
+                    <div className="flex justify-center mt-[45%] text-taupe-500 font-semibold">No active note :/</div>
                 )}
             </main>
         </div>

@@ -14,7 +14,7 @@ interface DesktopProps {
 
 export function Desktop({ user, isGuest, guestName, onLogout }: DesktopProps) {
     const [windows, setWindows] = useState<OSWindow[]>([])
-    const [nextZIndex, setNextZIndex] = useState(1)
+    const [nextZIndex, setNextZIndex] = useState(2)
 
     function openApp(appId: string) {
         const appDef = APPS.find((app) => app.id === appId)
