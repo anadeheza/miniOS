@@ -7,4 +7,5 @@ export interface OSWindow {
     width: number
     height: number
     zIndex: number 
+    data?: {fileId?: string}
 }

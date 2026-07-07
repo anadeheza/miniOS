@@ -120,9 +120,9 @@ export const Calc: React.FC = () => {
                     <button onClick={() => handleNumber('1')} className={getButtonClass('num')}>1</button>
                     <button onClick={() => handleNumber('2')} className={getButtonClass('num')}>2</button>
                     <button onClick={() => handleNumber('3')} className={getButtonClass('num')}>3</button>
-                    <button onClick={handleEqual} className="row-span-2 p-4 text-xl font-semibold rounded-2xl bg-amber-500 text-white hover:bg-amber-600 active:scale-95 transition flex items-center justify-center focus:outline-none">=</button>
+                    <button onClick={handleEqual} className="row-span-2 p-4 text-xl font-semibold rounded-2xl bg-amber-500 text-white hover:bg-amber-600 flex items-center justify-center ">=</button>
 
-                    <button onClick={() => handleNumber('0')} className="col-span-2 p-4 text-xl font-semibold rounded-2xl bg-gray-800 text-white hover:bg-gray-700 active:scale-95 transition text-left pl-7 focus:outline-none">0</button>
+                    <button onClick={() => handleNumber('0')} className="col-span-2 p-4 text-xl font-semibold rounded-2xl bg-gray-800 text-white hover:bg-gray-700 text-left pl-7 ">0</button>
                     <button onClick={() => handleNumber('.')} className={getButtonClass('num')}>.</button>
                 </div>
             </div>

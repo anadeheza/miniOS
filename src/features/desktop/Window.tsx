@@ -3,15 +3,22 @@ import type { OSWindow } from "./types";
 import { Calc } from "./apps/Calc";
 import { Notes } from "./apps/Notes";
 import { Clock } from "./apps/Clock";
+import { Files } from "./apps/files/Files";
+import { Editor } from "./apps/files/Editor";
+import { Profile } from "./apps/Profile";
 
 interface WindowProps {
     window: OSWindow
+    isGuest: boolean
+    guestName: string | null 
+    onLogout: () => void
     onClose: () => void
     onFocus: () => void
     onMove: (x: number, y: number) => void
+    onOpenApp: (appId: string, options?: { title?: string; data?: { fileId?: string } }) => void
 }
 
-export function Window({ window: win, onClose, onFocus, onMove }: WindowProps) {
+export function Window({ window: win, onClose, onFocus, isGuest, guestName, onLogout, onMove, onOpenApp }: WindowProps) {
     const dragOffset = useRef({x: 0, y: 0})
 
     function handlePointerDown(e: React.PointerEvent) {
@@ -36,20 +43,31 @@ export function Window({ window: win, onClose, onFocus, onMove }: WindowProps) {
                 return <Notes/>
             case 'calculator':
                 return <Calc/>
-            case 'browser':
-                return <p>Browser </p>
             case 'settings':
                 return <p>Settings</p>
             case 'clock':
                 return <Clock/>
-            default:
-                return <p>Unknown app.</p>
+            case 'files':
+                return (
+                    <Files
+                        onOpenFile={(file) =>
+                            onOpenApp('text-editor', {
+                                title: `${file.name}.${file.extension}`,
+                                data: { fileId: file.id },
+                            })
+                        }
+                    />
+                )
+            case 'text-editor':
+                return <Editor fileId={win.data?.fileId ?? ''} />
+            case 'profile':
+                return <Profile isGuest={isGuest} guestName={guestName} onLogout={onLogout} />
         }
     }
 
     return (
         <div
-            className="absolute rounded-xl bg-black/90 shadow-2xl overflow-auto scrollbar-thin scrollbar-thumb-taupe-500 scrollbar-track-transparent backdrop-blur-[10px]"
+            className="absolute rounded-xl bg-taupe-950/90 shadow-2xl overflow-auto scrollbar-thin scrollbar-thumb-taupe-500 scrollbar-track-transparent backdrop-blur-[10px]"
             style={{
                 left: win.x,
                 top: win.y,
@@ -63,7 +81,7 @@ export function Window({ window: win, onClose, onFocus, onMove }: WindowProps) {
                 onPointerDown={handlePointerDown}
                 className="flex h-9 cursor-move items-center justify-between bg-taupe-800 px-3"
             >
-                <span className="text-sm font-medium text-taupe-300">{win.title}</span>
+                <span className="text-sm font-medium text-taupe-300">𑣲{win.title}</span>
                 <button
                     onClick={onClose}
                     className="h-4 w-4 rounded-full bg-red-400 hover:bg-red-500 cursor-pointer"
