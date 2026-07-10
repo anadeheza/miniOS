@@ -6,6 +6,7 @@ import { Clock } from "./apps/Clock";
 import { Files } from "./apps/files/Files";
 import { Editor } from "./apps/files/Editor";
 import { Profile } from "./apps/Profile";
+import { Settings } from "./apps/settings/Settings";
 
 interface WindowProps {
     window: OSWindow
@@ -43,8 +44,6 @@ export function Window({ window: win, onClose, onFocus, isGuest, guestName, onLo
                 return <Notes/>
             case 'calculator':
                 return <Calc/>
-            case 'settings':
-                return <p>Settings</p>
             case 'clock':
                 return <Clock/>
             case 'files':
@@ -62,12 +61,14 @@ export function Window({ window: win, onClose, onFocus, isGuest, guestName, onLo
                 return <Editor fileId={win.data?.fileId ?? ''} />
             case 'profile':
                 return <Profile isGuest={isGuest} guestName={guestName} onLogout={onLogout} />
+            case 'settings':
+                return <Settings onLogout={onLogout} />
         }
     }
 
     return (
         <div
-            className="absolute rounded-[15px] bg-taupe-950/90 shadow-2xl overflow-auto scrollbar-thin scrollbar-thumb-taupe-500 scrollbar-track-transparent backdrop-blur-[10px]"
+            className="absolute rounded-[15px] bg-taupe-950/90 shadow-2xl flex flex-col overflow-hidden backdrop-blur-[10px]"
             style={{
                 left: win.x,
                 top: win.y,
@@ -79,7 +80,7 @@ export function Window({ window: win, onClose, onFocus, isGuest, guestName, onLo
         >
             <div
                 onPointerDown={handlePointerDown}
-                className="flex h-9 cursor-move items-center justify-between bg-taupe-800 px-3"
+                className=" flex h-9 shrink-0 cursor-move items-center justify-between bg-taupe-800 px-3"
             >
                 <span className="text-[14px] text-taupe-300">𑣲{win.title}</span>
                 <button
@@ -87,7 +88,7 @@ export function Window({ window: win, onClose, onFocus, isGuest, guestName, onLo
                     className="h-4 w-4 rounded-full bg-red-400 hover:bg-red-500 cursor-pointer"
                 />
             </div>
-            <div>
+            <div className="flex-1 overflow-auto scrollbar-thin scrollbar-thumb-taupe-500 scrollbar-track-transparent ">
                 {renderAppContent(win.appId)}
             </div>
         </div>

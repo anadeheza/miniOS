@@ -5,6 +5,7 @@ import { LockScreen } from './features/LockScreen'
 import { Desktop } from './features/desktop/Desktop'
 import { GuestNameModal } from './features/auth/GuestModal'
 import { TopBar } from './features/desktop/TopBar'
+import { BgProvider } from './features/desktop/apps/settings/BackgroundConext'
 
 type Screen = 'lock' | 'auth' | 'guestName' | 'desktop'
 
@@ -33,7 +34,11 @@ function App() {
   }
 
   if (user && screen === 'lock') {
-    return <Desktop user={user} isGuest={isGuest} guestName={guestName} onLogout={handleLogout}/>
+    return (
+      <BgProvider>
+        <Desktop user={user} isGuest={isGuest} guestName={guestName} onLogout={handleLogout}/>
+      </BgProvider>
+    )
   }
 
   if (screen === 'lock') {
@@ -62,12 +67,14 @@ function App() {
   }
 
   return (
+    <BgProvider>
       <Desktop
           user={user}
           isGuest={isGuest}
           guestName={guestName}
           onLogout={handleLogout}
       />
+    </BgProvider>
   )
 }
 

@@ -5,6 +5,7 @@ import { Window } from "./Window";
 import { APPS } from "./apps";
 import { TopBar } from "./TopBar";
 import { Files } from "./apps/files/FilesContext"
+import { isVideoWallpaper, useWallpaper } from "./apps/settings/BackgroundConext";
 
 
 interface DesktopProps {
@@ -15,6 +16,7 @@ interface DesktopProps {
 }
 
 export function Desktop({ user, isGuest, guestName, onLogout }: DesktopProps) {
+    const { wallpaper} = useWallpaper()
     const [windows, setWindows] = useState<OSWindow[]>([])
     const [nextZIndex, setNextZIndex] = useState(2)
 
@@ -57,10 +59,26 @@ export function Desktop({ user, isGuest, guestName, onLogout }: DesktopProps) {
     }
 
     const displayName = isGuest ? guestName : user?.name ?? null
+    const isVideo = isVideoWallpaper(wallpaper)
 
     return (
         <Files>
-            <div className=" h-screen w-screen overflow-hidden bg-[url(src/assets/wallpapers/homebg.jpg)] bg-cover bg-center">
+            <div className="h-screen w-screen overflow-hidden relative">
+                {isVideo ? (
+                    <video
+                        src={wallpaper}
+                        autoPlay
+                        loop
+                        muted 
+                        className="absolute inset-0 h-full w-full object-cover -z-10" 
+                    />
+                ) : (
+                    <div
+                        className="absolute inset-0 bg-cover bg-center -z-10"
+                        style={{ backgroundImage: `url(${wallpaper})` }}
+                    />
+                )}
+                
                 <TopBar displayName={displayName} onOpenApp={openApp} onLogout={onLogout} />
 
                 {windows.map((win) => (

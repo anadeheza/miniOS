@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import type { ReactNode } from "react";
 
-const PRESETS = ["assets/wallpapers/homebg.jpg", "assets/wallpapers/bg1.jpg", "assets/wallpapers/bg2.jpg", "assets/wallpapers/bg3.jpg"]
+const PRESETS = ["src/assets/wallpapers/homebg.jpg", "src/assets/wallpapers/bg1.jpg", "src/assets/wallpapers/bg2.jpg", "src/assets/wallpapers/bg3.mp4"]
 
 interface BgContextType {
     wallpaper: string
@@ -33,4 +33,9 @@ export function useWallpaper() {
     const ctx = useContext(BgContext)
     if(!ctx) throw new Error
     return ctx
+}
+
+
+export function isVideoWallpaper(src: string) {
+    return src.endsWith(".mp4") || src.startsWith("data:video"); 
 }

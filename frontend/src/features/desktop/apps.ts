@@ -17,7 +17,7 @@ export const APPS: AppDefinition[] = [
     { id: 'calculator', title: 'Calculator', icon: calcIcon, defaultWidth: 350, defaultHeight: 600 },
     { id: 'clock', title: 'Clock', icon: clockIcon, defaultWidth: 500, defaultHeight: 400 },
     { id: 'files', title: 'Files', icon: filesIcon, defaultWidth: 640, defaultHeight: 420 },
-    { id: 'settings', title: 'Settings', icon: '⚙️', defaultWidth: 420, defaultHeight: 360, showInDock: false },
-    { id: 'profile', title: 'Profile', icon: '👤', defaultWidth: 250, defaultHeight: 300, showInDock: false },
-    { id: 'text-editor', title: 'Text Editor', icon: '📄', defaultWidth: 420, defaultHeight: 360, showInDock: false },
+    { id: 'settings', title: 'Settings', icon: '', defaultWidth: 800, defaultHeight: 550, showInDock: false },
+    { id: 'profile', title: 'Profile', icon: '', defaultWidth: 250, defaultHeight: 300, showInDock: false },
+    { id: 'text-editor', title: 'Text Editor', icon: '', defaultWidth: 420, defaultHeight: 360, showInDock: false },
 ]

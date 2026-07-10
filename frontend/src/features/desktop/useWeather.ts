@@ -1,4 +1,3 @@
-// src/features/desktop/useWeather.ts
 import { useEffect, useState } from 'react'
 
 interface WeatherData {
@@ -33,7 +32,7 @@ export function useWeather() {
 
         navigator.geolocation.getCurrentPosition(
             (pos) => fetchWeather(pos.coords.latitude, pos.coords.longitude),
-            () => fetchWeather(48.8566, 2.3522) // fallback: Paris, adjust to taste
+            () => fetchWeather(48.8566, 2.3522)  
         )
     }, [])
 
