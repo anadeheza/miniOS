@@ -12,9 +12,9 @@ Just a simple lock screen with time, day and a hint for nowing how to enter the 
 This is fully optional but you could create an account if you'd like to (this was mainly for applying my database and authentication knowledge, in some time i might add greater use to this)
 
 <div class="flex gap-2">
-    <img src="images/signup.png" alt="signup" width="300" >
-    <img src="images/login.png" alt="login" width="300">
-    <img src="images/guest.png" alt="enter as a guest" width="300">
+    <img src="images/signup.png" alt="signup" width="200" >
+    <img src="images/login.png" alt="login" width="200">
+    <img src="images/guest.png" alt="enter as a guest" width="200">
 </div>
 
 If you do not provide a name you'll be refered as "guest" on the desktop
