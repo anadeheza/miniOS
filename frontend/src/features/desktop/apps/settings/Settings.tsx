@@ -67,10 +67,12 @@ export const Settings: React.FC<SettingsProps> = ({ onLogout}) => {
             <section className="flex justify-center" >
                 <button
                     onClick={onLogout} 
-                    className="px-3 py-0.5 rounded-lg bg-rose-800/70  text-/14px font-bold text-rose-100 hover:bg-rose-300/70 hover:text-rose-950 mb-5 mt-15"
+                    className=" px-3 py-0.5 rounded-lg text-[20px] text-rose-700 hover:text-rose-200"
+                    title="Shut down"
                 >
-                    Log out ⏻
+                     ⏻ 
                 </button>
+                
             </section>
         </div>
     )

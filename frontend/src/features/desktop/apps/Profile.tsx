@@ -33,9 +33,10 @@ export const Profile: React.FC<ProfileProps> = ({ isGuest, guestName, onLogout})
 
             <button
                 onClick={onLogout}
-                className=" px-3 py-0.5 rounded-lg bg-rose-800/70  text-/14px font-bold text-rose-100 hover:bg-rose-300/70 hover:text-rose-950"
+                className=" px-3 py-0.5 rounded-lg bg-rose-800/70  text-/14px text-rose-100 hover:bg-rose-300/70 hover:text-rose-950"
+                title="shut down :/"
             >
-                Log out ⏻
+                ⏻
             </button>
         </div>
     )
