@@ -60,7 +60,7 @@ export function Desktop({ user, isGuest, guestName, onLogout }: DesktopProps) {
 
     return (
         <Files>
-            <div className=" h-screen w-screen overflow-hidden bg-[url(src/assets/homebg.jpg)] bg-cover bg-center">
+            <div className=" h-screen w-screen overflow-hidden bg-[url(src/assets/wallpapers/homebg.jpg)] bg-cover bg-center">
                 <TopBar displayName={displayName} onOpenApp={openApp} onLogout={onLogout} />
 
                 {windows.map((win) => (
