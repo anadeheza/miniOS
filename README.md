@@ -41,9 +41,23 @@ This window displays profile settings if any, you'll se the name you provided an
 
 ## Apps / Dock
 ### Notes
-### File Explorer
-### Calculator
-### Clock
+Just a simple note app where youu can add and delete your thoughts, to-dos, etc.
 
-#### AI Use
-> 
+With optional tags (work, school, ideas, important), and optional colors to diferentiate your notes more easily.
+
+<img src="images/notes.png" alt="notes app" width="400" >
+
+### File Explorer
+A basic file explorer where you can add and delete folders and text files, with an openeable window for writing your files, it works fully inside the webos, perhaps i'll add the option of downloading or adding other file extensions in the future.
+
+<img src="images/fileExp.png" alt="File explorer app" width="400" >
+
+### Calculator
+A basic calculator, not much more to say :)
+
+<img src="images/calc.png" alt="calculator app" width="400" >
+
+### Clock
+literally just the hour, 12 / 24 hours format, i may add alarms, cronometer and international hours in the future. 
+
+<img src="images/clock.png" alt="clock app" width="400" >
