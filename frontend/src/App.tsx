@@ -4,7 +4,6 @@ import { LoginSignupModal } from './features/auth/LoginSignupModal'
 import { LockScreen } from './features/LockScreen'
 import { Desktop } from './features/desktop/Desktop'
 import { GuestNameModal } from './features/auth/GuestModal'
-import { TopBar } from './features/desktop/TopBar'
 import { BgProvider } from './features/desktop/apps/settings/BackgroundConext'
 
 type Screen = 'lock' | 'auth' | 'guestName' | 'desktop'
