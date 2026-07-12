@@ -27,14 +27,32 @@ export const Settings: React.FC<SettingsProps> = ({ onLogout}) => {
                 <h2 className="text-[20px] tracking-[0.5px] font-bold mb-2 text-taupe-300">Backgrounds ⤵</h2>
 
                 <div className="grid grid-cols-2 gap-3">
-                    {presets.map((src) => (
-                        isVideoWallpaper(src) ? (
-                            <video key={src} src={src} muted loop className=" h-45 w-full object-cover rounded cursor-pointer" onClick={() => setWallpaper(src)} />
+                    {presets.map((src) => {
+                        const isActive = src === wallpaper
+                        return isVideoWallpaper(src) ? (
+                            <video
+                                key={src}
+                                src={src}
+                                muted
+                                loop
+                                className={`h-45 w-full object-cover rounded cursor-pointer ${
+                                    isActive ? 'ring-2 ring-amber-400' : ''
+                                }`}
+                                onClick={() => setWallpaper(src)}
+                            />
                         ) : (
-                            <img key={src} src={src} className=" h-45 w-full object-cover rounded cursor-pointer" onClick={() => setWallpaper(src)} />
+                            <img
+                                key={src}
+                                src={src}
+                                className={`h-45 w-full object-cover rounded cursor-pointer ${
+                                    isActive ? 'ring-2 ring-amber-400' : ''
+                                }`}
+                                onClick={() => setWallpaper(src)}
+                            />
                         )
-                    ))}
+                    })}
                 </div>
+                
                 <div className="flex justify-center">
                     <button
                         onClick={() => fileInputRef.current?.click()} 
