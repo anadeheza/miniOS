@@ -1,9 +1,9 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import type { ReactNode } from "react";
-import bg1 from '../assets/wallpapers/bg1.jpg'
-import bg2 from '../assets/wallpapers/bg2.jpg'
-import bg3 from '../assets/wallpapers/bg3.mp4'
-import homebg from '../assets/wallpapers/homebg.jpg'
+import bg1 from "../../../../assets/wallpapers/bg1.jpg"
+import bg2 from "../../../../assets/wallpapers/bg2.jpg"
+import bg3 from "../../../../assets/wallpapers/bg3.mp4"
+import homebg from "../../../../assets/wallpapers/homebg.jpg"
 
 export const PRESETS = [bg1, bg2, bg3, homebg]
 
