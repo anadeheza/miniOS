@@ -9,7 +9,7 @@ const app = express()
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: process.env.FRONTEND_URL || 'http://localhost:5173',
     credentials: true
 }))
 
@@ -34,8 +34,9 @@ function createSess(userId: string) {
 function setCookkies(res: express.Response, token: string, expiration: number) {
     res.cookie('session', token, {
         httpOnly: true,
-        secure: false,
-        expires: new Date(expiration)
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+        expires: new Date(expiration),
     })
 }
 
@@ -117,6 +118,8 @@ app.post('/logout', requireAuth, (req: AuthReq, res) => {
     res.json({ success: true })
 })
 
-app.listen(3000, () => {
-    console.log('running on http://localhost:3000')
+const PORT = process.env.PORT || 3000
+
+app.listen(PORT, () => {
+    console.log('running on port ${PORT}')
 })
