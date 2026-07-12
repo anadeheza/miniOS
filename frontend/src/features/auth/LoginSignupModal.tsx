@@ -1,6 +1,8 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
 import { useAuth } from "./AuthContext";
+import homebg from '../../assets/wallpapers/homebg.jpg'
+
 
 interface AuthProps {
     onClose: () => void
@@ -37,8 +39,7 @@ export function LoginSignupModal({ onClose, onSkip }: AuthProps) {
     } 
 
     return (
-        <div className="fixed inset-0 flex items-center justify-center bg-taupe-600 bg-[url(src/assets/homebg.jpg)] bg-blend-multiply bg-cover bg-center">
-            <div className="w-90 rounded-[30px] bg-amber-100/20 p-6 border border-amber-100/30">
+            <div className={`fixed inset-0 flex items-center justify-center bg-taupe-600 bg-[url(${homebg})] bg-blend-multiply bg-cover bg-center`}>            <div className="w-90 rounded-[30px] bg-amber-100/20 p-6 border border-amber-100/30">
                 <h2 className="mb-4 text-[18px] font-bold text-amber-100/70">
                     {mode === 'login' ? 'Log in' : 'Sign up'}
                 </h2>

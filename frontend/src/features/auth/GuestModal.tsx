@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import type { FormEvent } from 'react'
+import homebg from '../../assets/wallpapers/homebg.jpg'
+
 
 interface GuestNameModalProps {
     onSubmit: (name: string) => void
@@ -15,7 +17,7 @@ export function GuestNameModal({ onSubmit }: GuestNameModalProps) {
     }
 
     return (
-        <div className="fixed inset-0 flex items-center justify-center bg-taupe-600 bg-[url(src/assets/homebg.jpg)] bg-blend-multiply bg-cover bg-center">
+        <div className={`fixed inset-0 flex items-center justify-center bg-taupe-600 bg-[url(${homebg})] bg-blend-multiply bg-cover bg-center`}>
             <div className="w-90 rounded-[30px] bg-amber-100/20 backdrop-blur-10 p-6 text-black border border-amber-100/50">
                 <h2 className="mb-4 text-lg font-semibold text-amber-50">
                     Enter a name (optional)
